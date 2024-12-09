@@ -1,0 +1,11 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<ItemGroup>
+		<ProjectReference Include="..\..\Source\aweXpect.Chronology\aweXpect.Chronology.csproj"/>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="aweXpect"/>
+	</ItemGroup>
+
+</Project>
