@@ -4,8 +4,8 @@ namespace aweXpect.Chronology;
 
 #if NET8_0_OR_GREATER
 /// <summary>
-///     A builder that allows implicit cast to <see cref="DateTime" />, <see cref="DateOnly" /> and <see cref="TimeOnly" />
-///     .
+///     A builder that allows implicit cast to <see cref="DateTime" />, <see cref="DateOnly" />
+///     and <see cref="TimeOnly" />.
 /// </summary>
 #else
 /// <summary>
@@ -52,4 +52,7 @@ public readonly struct DateTimeBuilder(DateTime value)
 
 	internal DateTimeBuilder SpecifyKind(DateTimeKind kind)
 		=> new(DateTime.SpecifyKind(_value, kind));
+
+	internal DateTimeOffsetBuilder SetOffset(TimeSpan offset)
+		=> new(new DateTimeOffset(_value, offset));
 }
