@@ -5,12 +5,22 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=aweXpect_aweXpect.Chronology&metric=coverage)](https://sonarcloud.io/summary/new_code?id=aweXpect_aweXpect.Chronology)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FaweXpect%2FaweXpect.Chronology%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/aweXpect/aweXpect.Chronology/main)
 
-Extension methods for creating a `TimeSpan` that reads more natural.
+Extension methods for creating a `TimeSpan` or `DateTime` that reads more natural.
+
+
+## TimeSpan
+
+Add the following extension methods on `int` and `double` that allow creating a `TimeSpan`:
+- `.Milliseconds()`
+- `.Seconds()`
+- `.Minutes()`
+- `.Hours()`
+- `.Days()`
 
 ```csharp
 // ↓ Using traditional creation of TimeSpan
-await Expect.That(someAction).Should().ExecuteWithin(TimeSpan.FromSeconds(10));
-await Expect.That(someAction).Should().ExecuteWithin(10.Seconds());
+TimeSpan timeout = TimeSpan.FromSeconds(10);
+TimeSpan timeout = 10.Seconds();
 // ↑ Using the extension methods from this library
 ```
 
@@ -19,9 +29,24 @@ It is also possible to combine multiple extension methods:
 TimeSpan timeout = 1.Minutes(30.Seconds());
 ```
 
-Available methods are
-- `.Milliseconds()`
-- `.Seconds()`
-- `.Minutes()`
-- `.Hours()`
-- `.Days()`
+
+## DateTime
+
+Add extension methods on `int` for each month that allow creating a `DateTime`:
+
+```csharp
+// ↓ Using traditional creation of DateTime
+DateTime time = new DateTime(2024, 12, 24);
+DateTime time = 24.December(2024);
+// ↑ Using the extension methods from this library
+```
+
+It is also possible to specify a time:
+```csharp
+DateTime time = 24.December(2024).At(18, 30);
+```
+
+It is also possible combine this with the `TimeSpan` extensions:
+```csharp
+DateTime time = 3.Hours().Before(25.December(2024));
+```
