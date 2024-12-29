@@ -21,6 +21,12 @@ public readonly struct TimeSpanBuilder(TimeSpan value)
 	public static implicit operator TimeSpan(TimeSpanBuilder builder)
 		=> builder._value;
 
+	/// <summary>
+	///     Returns a new <see cref="TimeSpanBuilder" /> whose value is the negated value of this <paramref name="instance" />.
+	/// </summary>
+	public static TimeSpanBuilder operator -(TimeSpanBuilder instance)
+		=> new(instance._value.Negate());
+
 #if NET8_0_OR_GREATER
 	/// <summary>
 	///     Implicitly casts the <see cref="TimeSpanBuilder" /> to a <see cref="TimeOnly" />.

@@ -25,6 +25,16 @@ public sealed class TimeSpanBuilderTests
 	}
 
 	[Fact]
+	public async Task UnaryMinusOperator_ShouldReturnNegatedValue()
+	{
+		TimeSpan expected = TimeSpan.FromHours(-1);
+		
+		TimeSpan result = -1.Hours();
+
+		await That(result).Should().Be(expected);
+	}
+
+	[Fact]
 	public async Task ImplicitOperator_ShouldConvertToTimeSpan()
 	{
 		TimeSpan expected = new(2, 3, 4);
