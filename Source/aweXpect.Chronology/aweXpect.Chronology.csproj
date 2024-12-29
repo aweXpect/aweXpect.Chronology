@@ -4,8 +4,4 @@
 		<RootNamespace>aweXpect.Chronology</RootNamespace>
 	</PropertyGroup>
 
-	<ItemGroup>
-		<PackageReference Include="aweXpect.Core"/>
-	</ItemGroup>
-
 </Project>
