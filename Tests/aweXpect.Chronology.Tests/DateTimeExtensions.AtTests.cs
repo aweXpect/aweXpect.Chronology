@@ -5,7 +5,7 @@ public sealed partial class DateTimeExtensions
 	public sealed class AtTests
 	{
 		[Fact]
-		public async Task At_WithTimeSpan_ShouldAddTime()
+		public async Task FromBuilder_WithTimeSpan_ShouldAddTime()
 		{
 			DateTime expected = new(2024, 12, 24, 18, 30, 15);
 
@@ -15,7 +15,7 @@ public sealed partial class DateTimeExtensions
 		}
 
 		[Fact]
-		public async Task At_WithHourAndMinutes_ShouldAddTime()
+		public async Task FromBuilder_WithHourAndMinutes_ShouldAddTime()
 		{
 			DateTime expected = new(2024, 12, 24, 18, 30, 00);
 
@@ -25,7 +25,7 @@ public sealed partial class DateTimeExtensions
 		}
 
 		[Fact]
-		public async Task At_WithHourMinutesAndSeconds_ShouldAddTime()
+		public async Task FromBuilder_WithHourMinutesAndSeconds_ShouldAddTime()
 		{
 			DateTime expected = new(2024, 12, 24, 18, 30, 59);
 
@@ -35,7 +35,7 @@ public sealed partial class DateTimeExtensions
 		}
 
 		[Fact]
-		public async Task At_WithHourMinutesSecondsAndMilliseconds_ShouldAddTime()
+		public async Task FromBuilder_WithHourMinutesSecondsAndMilliseconds_ShouldAddTime()
 		{
 			DateTime expected = new(2024, 12, 24, 18, 30, 0, 150, DateTimeKind.Unspecified);
 
@@ -43,5 +43,95 @@ public sealed partial class DateTimeExtensions
 
 			await That(result).Should().Be(expected);
 		}
+
+		[Fact]
+		public async Task FromDateTime_WithTimeSpan_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 15);
+			DateTime date = 24.December(2024);
+
+			DateTime result = date.At(18.Hours(30.Minutes(15.Seconds())));
+
+			await That(result).Should().Be(expected);
+		}
+
+		[Fact]
+		public async Task FromDateTime_WithHourAndMinutes_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 00);
+			DateTime date = 24.December(2024);
+
+			DateTime result = date.At(18, 30);
+
+			await That(result).Should().Be(expected);
+		}
+
+		[Fact]
+		public async Task FromDateTime_WithHourMinutesAndSeconds_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 59);
+			DateTime date = 24.December(2024);
+
+			DateTime result = date.At(18, 30, 59);
+
+			await That(result).Should().Be(expected);
+		}
+
+		[Fact]
+		public async Task FromDateTime_WithHourMinutesSecondsAndMilliseconds_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 0, 150, DateTimeKind.Unspecified);
+			DateTime date = 24.December(2024);
+
+			DateTime result = date.At(18, 30, 0, 150);
+
+			await That(result).Should().Be(expected);
+		}
+
+#if NET8_0_OR_GREATER
+		[Fact]
+		public async Task FromDateOnly_WithTimeSpan_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 15);
+			DateOnly date = 24.December(2024);
+
+			DateTime result = date.At(18.Hours(30.Minutes(15.Seconds())));
+
+			await That(result).Should().Be(expected);
+		}
+
+		[Fact]
+		public async Task FromDateOnly_WithHourAndMinutes_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 00);
+			DateOnly date = 24.December(2024);
+
+			DateTime result = date.At(18, 30);
+
+			await That(result).Should().Be(expected);
+		}
+
+		[Fact]
+		public async Task FromDateOnly_WithHourMinutesAndSeconds_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 59);
+			DateOnly date = 24.December(2024);
+
+			DateTime result = date.At(18, 30, 59);
+
+			await That(result).Should().Be(expected);
+		}
+
+		[Fact]
+		public async Task FromDateOnly_WithHourMinutesSecondsAndMilliseconds_ShouldAddTime()
+		{
+			DateTime expected = new(2024, 12, 24, 18, 30, 0, 150, DateTimeKind.Unspecified);
+			DateOnly date = 24.December(2024);
+
+			DateTime result = date.At(18, 30, 0, 150);
+
+			await That(result).Should().Be(expected);
+		}
+#endif
 	}
 }

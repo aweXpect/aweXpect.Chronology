@@ -5,7 +5,6 @@ namespace aweXpect.Chronology
     public readonly struct DateBuilder
     {
         public DateBuilder(System.DateTime value) { }
-        public aweXpect.Chronology.DateTimeBuilder Add(System.TimeSpan time) { }
         public static System.DateTime op_Implicit(aweXpect.Chronology.DateBuilder builder) { }
         public static aweXpect.Chronology.DateBuilder operator +(aweXpect.Chronology.DateBuilder builder, System.TimeSpan time) { }
         public static aweXpect.Chronology.DateBuilder operator -(aweXpect.Chronology.DateBuilder builder, System.TimeSpan time) { }

@@ -4,7 +4,8 @@ namespace aweXpect.Chronology;
 
 #if NET8_0_OR_GREATER
 /// <summary>
-///     A builder that allows implicit cast to <see cref="DateTime" />, <see cref="DateOnly"/> and <see cref="TimeOnly"/>.
+///     A builder that allows implicit cast to <see cref="DateTime" />, <see cref="DateOnly" />
+///     and <see cref="TimeOnly" />.
 /// </summary>
 #else
 /// <summary>
@@ -14,7 +15,7 @@ namespace aweXpect.Chronology;
 public readonly struct DateBuilder(DateTime value)
 {
 	private readonly DateTime _value = value;
-	
+
 	/// <summary>
 	///     Implicitly casts the <see cref="DateBuilder" /> to a <see cref="DateTime" />.
 	/// </summary>
@@ -41,8 +42,6 @@ public readonly struct DateBuilder(DateTime value)
 	public static DateBuilder operator -(DateBuilder builder, TimeSpan time)
 		=> new(builder._value - time);
 
-	public DateTimeBuilder Add(TimeSpan time)
-	{
-		return new DateTimeBuilder(_value + time);
-	}
+	internal DateTimeBuilder Add(TimeSpan time)
+		=> new(_value + time);
 }

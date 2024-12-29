@@ -99,6 +99,21 @@ public static class DateTimeExtensions
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="date" /> and <paramref name="time" />.
 	/// </summary>
+	public static DateTimeBuilder At(this DateBuilder date, TimeSpan time)
+		=> date.Add(time);
+
+	/// <summary>
+	///     Creates a <see cref="DateTime" /> for the given <paramref name="date" /> and time
+	///     with the specified <paramref name="hours" />, <paramref name="minutes" />
+	///     and optionally <paramref name="seconds" /> and <paramref name="milliseconds" />.
+	/// </summary>
+	public static DateTimeBuilder At(this DateBuilder date, int hours, int minutes, int seconds = 0,
+		int milliseconds = 0)
+		=> date.Add(hours.Hours(minutes.Minutes(seconds.Seconds(milliseconds.Milliseconds()))));
+
+	/// <summary>
+	///     Creates a <see cref="DateTime" /> for the given <paramref name="date" /> and <paramref name="time" />.
+	/// </summary>
 	public static DateTime At(this DateTime date, TimeSpan time)
 		=> date + time;
 
@@ -110,20 +125,23 @@ public static class DateTimeExtensions
 	public static DateTime At(this DateTime date, int hours, int minutes, int seconds = 0, int milliseconds = 0)
 		=> new(date.Year, date.Month, date.Day, hours, minutes, seconds, milliseconds, date.Kind);
 
+#if NET8_0_OR_GREATER
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="date" /> and <paramref name="time" />.
 	/// </summary>
-	public static DateTimeBuilder At(this DateBuilder date, TimeSpan time)
-		=> date.Add(time);
+	public static DateTime At(this DateOnly date, TimeSpan time)
+		=> date.ToDateTime(TimeOnly.MinValue) + time;
+#endif
 
+#if NET8_0_OR_GREATER
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="date" /> and time
 	///     with the specified <paramref name="hours" />, <paramref name="minutes" />
 	///     and optionally <paramref name="seconds" /> and <paramref name="milliseconds" />.
 	/// </summary>
-	public static DateTimeBuilder At(this DateBuilder date, int hours, int minutes, int seconds = 0, int milliseconds = 0)
-		=> date.Add(hours.Hours(minutes.Minutes(seconds.Seconds(milliseconds.Milliseconds()))));
-
+	public static DateTime At(this DateOnly date, int hours, int minutes, int seconds = 0, int milliseconds = 0)
+		=> new(date.Year, date.Month, date.Day, hours, minutes, seconds, milliseconds, DateTimeKind.Unspecified);
+#endif
 
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
@@ -138,6 +156,7 @@ public static class DateTimeExtensions
 	/// </summary>
 	public static DateTime AsLocal(this DateTime dateTime)
 		=> DateTime.SpecifyKind(dateTime, DateTimeKind.Local);
+
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
 	///     with kind set to <see cref="DateTimeKind.Utc" />.

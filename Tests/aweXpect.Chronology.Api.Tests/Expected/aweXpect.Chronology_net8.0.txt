@@ -5,7 +5,6 @@ namespace aweXpect.Chronology
     public readonly struct DateBuilder
     {
         public DateBuilder(System.DateTime value) { }
-        public aweXpect.Chronology.DateTimeBuilder Add(System.TimeSpan time) { }
         public static System.DateTime op_Implicit(aweXpect.Chronology.DateBuilder builder) { }
         public static System.DateOnly op_Implicit(aweXpect.Chronology.DateBuilder builder) { }
         public static aweXpect.Chronology.DateBuilder operator +(aweXpect.Chronology.DateBuilder builder, System.TimeSpan time) { }
@@ -32,8 +31,10 @@ namespace aweXpect.Chronology
         public static aweXpect.Chronology.DateTimeBuilder AsLocal(this aweXpect.Chronology.DateTimeBuilder dateTime) { }
         public static System.DateTime AsUtc(this System.DateTime dateTime) { }
         public static aweXpect.Chronology.DateTimeBuilder AsUtc(this aweXpect.Chronology.DateTimeBuilder dateTime) { }
+        public static System.DateTime At(this System.DateOnly date, System.TimeSpan time) { }
         public static System.DateTime At(this System.DateTime date, System.TimeSpan time) { }
         public static aweXpect.Chronology.DateTimeBuilder At(this aweXpect.Chronology.DateBuilder date, System.TimeSpan time) { }
+        public static System.DateTime At(this System.DateOnly date, int hours, int minutes, int seconds = 0, int milliseconds = 0) { }
         public static System.DateTime At(this System.DateTime date, int hours, int minutes, int seconds = 0, int milliseconds = 0) { }
         public static aweXpect.Chronology.DateTimeBuilder At(this aweXpect.Chronology.DateBuilder date, int hours, int minutes, int seconds = 0, int milliseconds = 0) { }
         public static aweXpect.Chronology.DateBuilder August(this int day, int year) { }
