@@ -12,6 +12,18 @@ public class DateTimeExtensionsTests
 		await That(result).Should().Be(expected);
 	}
 
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task January_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 01, 29);
+
+		DateOnly result = 29.January(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
+
 	[Fact]
 	public async Task February_ShouldReturnCorrectDateTime()
 	{
@@ -21,6 +33,18 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
+
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task February_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 02, 28);
+
+		DateOnly result = 28.February(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
 
 	[Fact]
 	public async Task March_ShouldReturnCorrectDateTime()
@@ -32,6 +56,18 @@ public class DateTimeExtensionsTests
 		await That(result).Should().Be(expected);
 	}
 
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task March_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 03, 27);
+
+		DateOnly result = 27.March(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
+
 	[Fact]
 	public async Task April_ShouldReturnCorrectDateTime()
 	{
@@ -41,6 +77,18 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
+
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task April_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 04, 26);
+
+		DateOnly result = 26.April(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
 
 	[Fact]
 	public async Task May_ShouldReturnCorrectDateTime()
@@ -52,6 +100,18 @@ public class DateTimeExtensionsTests
 		await That(result).Should().Be(expected);
 	}
 
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task May_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 05, 25);
+
+		DateOnly result = 25.May(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
+
 	[Fact]
 	public async Task June_ShouldReturnCorrectDateTime()
 	{
@@ -61,6 +121,18 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
+
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task June_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 06, 24);
+
+		DateOnly result = 24.June(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
 
 	[Fact]
 	public async Task July_ShouldReturnCorrectDateTime()
@@ -72,6 +144,18 @@ public class DateTimeExtensionsTests
 		await That(result).Should().Be(expected);
 	}
 
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task July_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 07, 23);
+
+		DateOnly result = 23.July(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
+
 	[Fact]
 	public async Task August_ShouldReturnCorrectDateTime()
 	{
@@ -81,6 +165,18 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
+
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task August_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 08, 22);
+
+		DateOnly result = 22.August(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
 
 	[Fact]
 	public async Task September_ShouldReturnCorrectDateTime()
@@ -92,6 +188,18 @@ public class DateTimeExtensionsTests
 		await That(result).Should().Be(expected);
 	}
 
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task September_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 09, 21);
+
+		DateOnly result = 21.September(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
+
 	[Fact]
 	public async Task October_ShouldReturnCorrectDateTime()
 	{
@@ -101,6 +209,18 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
+
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task October_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 10, 20);
+
+		DateOnly result = 20.October(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
 
 	[Fact]
 	public async Task November_ShouldReturnCorrectDateTime()
@@ -112,6 +232,18 @@ public class DateTimeExtensionsTests
 		await That(result).Should().Be(expected);
 	}
 
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task November_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 11, 19);
+
+		DateOnly result = 19.November(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
+
 	[Fact]
 	public async Task December_ShouldReturnCorrectDateTime()
 	{
@@ -121,6 +253,18 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
+
+#if NET8_0_OR_GREATER
+	[Fact]
+	public async Task December_ShouldReturnCorrectDateOnly()
+	{
+		DateOnly expected = new(2024, 12, 18);
+
+		DateOnly result = 18.December(2024);
+
+		await That(result).Should().Be(expected);
+	}
+#endif
 
 
 	[Fact]
@@ -162,7 +306,6 @@ public class DateTimeExtensionsTests
 
 		await That(result).Should().Be(expected);
 	}
-
 
 	[Fact]
 	public async Task AsUtc_ShouldSetKindToUtc()

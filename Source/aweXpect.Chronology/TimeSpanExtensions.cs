@@ -3,145 +3,145 @@
 namespace aweXpect.Chronology;
 
 /// <summary>
-///     Extension methods for creating <see cref="TimeSpan" />.
+///     Extension methods for creating <see cref="TimeSpanBuilder" />.
 /// </summary>
 /// <example>
-///     Instead of <c>new TimeSpan(0, 5, 30)</c><br />
+///     Instead of <c>new TimeSpanBuilder(0, 5, 30)</c><br />
 ///     you can write <c>5.Minutes(30.Seconds)</c>.
 /// </example>
-public static class TimeSpanExtensions
+public static class TimeSpanBuilderExtensions
 {
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="milliseconds" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="milliseconds" />.
 	/// </summary>
-	public static TimeSpan Milliseconds(this int milliseconds)
-		=> TimeSpan.FromMilliseconds(milliseconds);
+	public static TimeSpanBuilder Milliseconds(this int milliseconds)
+		=> new(TimeSpan.FromMilliseconds(milliseconds));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="milliseconds" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="milliseconds" />.
 	/// </summary>
-	public static TimeSpan Milliseconds(this double milliseconds)
-		=> TimeSpan.FromMilliseconds(milliseconds);
+	public static TimeSpanBuilder Milliseconds(this double milliseconds)
+		=> new(TimeSpan.FromMilliseconds(milliseconds));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="milliseconds" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="milliseconds" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Milliseconds(this int milliseconds, TimeSpan offset)
-		=> TimeSpan.FromMilliseconds(milliseconds).Add(offset);
+	public static TimeSpanBuilder Milliseconds(this int milliseconds, TimeSpan offset)
+		=> new(TimeSpan.FromMilliseconds(milliseconds).Add(offset));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="milliseconds" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="milliseconds" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Milliseconds(this double milliseconds, TimeSpan offset)
-		=> TimeSpan.FromMilliseconds(milliseconds).Add(offset);
+	public static TimeSpanBuilder Milliseconds(this double milliseconds, TimeSpan offset)
+		=> new(TimeSpan.FromMilliseconds(milliseconds).Add(offset));
 
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="seconds" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="seconds" />.
 	/// </summary>
-	public static TimeSpan Seconds(this int seconds)
-		=> TimeSpan.FromSeconds(seconds);
+	public static TimeSpanBuilder Seconds(this int seconds)
+		=> new(TimeSpan.FromSeconds(seconds));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="seconds" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="seconds" />.
 	/// </summary>
-	public static TimeSpan Seconds(this double seconds)
-		=> TimeSpan.FromSeconds(seconds);
+	public static TimeSpanBuilder Seconds(this double seconds)
+		=> new(TimeSpan.FromSeconds(seconds));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="seconds" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="seconds" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Seconds(this int seconds, TimeSpan offset)
-		=> TimeSpan.FromSeconds(seconds).Add(offset);
+	public static TimeSpanBuilder Seconds(this int seconds, TimeSpan offset)
+		=> new(TimeSpan.FromSeconds(seconds).Add(offset));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="seconds" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="seconds" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Seconds(this double seconds, TimeSpan offset)
-		=> TimeSpan.FromSeconds(seconds).Add(offset);
+	public static TimeSpanBuilder Seconds(this double seconds, TimeSpan offset)
+		=> new(TimeSpan.FromSeconds(seconds).Add(offset));
 
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="minutes" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="minutes" />.
 	/// </summary>
-	public static TimeSpan Minutes(this int minutes)
-		=> TimeSpan.FromMinutes(minutes);
+	public static TimeSpanBuilder Minutes(this int minutes)
+		=> new(TimeSpan.FromMinutes(minutes));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="minutes" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="minutes" />.
 	/// </summary>
-	public static TimeSpan Minutes(this double minutes)
-		=> TimeSpan.FromMinutes(minutes);
+	public static TimeSpanBuilder Minutes(this double minutes)
+		=> new(TimeSpan.FromMinutes(minutes));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="minutes" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="minutes" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Minutes(this int minutes, TimeSpan offset)
-		=> TimeSpan.FromMinutes(minutes).Add(offset);
+	public static TimeSpanBuilder Minutes(this int minutes, TimeSpan offset)
+		=> new(TimeSpan.FromMinutes(minutes).Add(offset));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="minutes" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="minutes" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Minutes(this double minutes, TimeSpan offset)
-		=> TimeSpan.FromMinutes(minutes).Add(offset);
+	public static TimeSpanBuilder Minutes(this double minutes, TimeSpan offset)
+		=> new(TimeSpan.FromMinutes(minutes).Add(offset));
 
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="hours" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="hours" />.
 	/// </summary>
-	public static TimeSpan Hours(this int hours)
-		=> TimeSpan.FromHours(hours);
+	public static TimeSpanBuilder Hours(this int hours)
+		=> new(TimeSpan.FromHours(hours));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="hours" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="hours" />.
 	/// </summary>
-	public static TimeSpan Hours(this double hours)
-		=> TimeSpan.FromHours(hours);
+	public static TimeSpanBuilder Hours(this double hours)
+		=> new(TimeSpan.FromHours(hours));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="hours" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="hours" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Hours(this int hours, TimeSpan offset)
-		=> TimeSpan.FromHours(hours).Add(offset);
+	public static TimeSpanBuilder Hours(this int hours, TimeSpan offset)
+		=> new(TimeSpan.FromHours(hours).Add(offset));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="hours" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="hours" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Hours(this double hours, TimeSpan offset)
-		=> TimeSpan.FromHours(hours).Add(offset);
+	public static TimeSpanBuilder Hours(this double hours, TimeSpan offset)
+		=> new(TimeSpan.FromHours(hours).Add(offset));
 
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="days" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="days" />.
 	/// </summary>
-	public static TimeSpan Days(this int days)
-		=> TimeSpan.FromDays(days);
+	public static TimeSpanBuilder Days(this int days)
+		=> new(TimeSpan.FromDays(days));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="days" />.
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="days" />.
 	/// </summary>
-	public static TimeSpan Days(this double days)
-		=> TimeSpan.FromDays(days);
+	public static TimeSpanBuilder Days(this double days)
+		=> new(TimeSpan.FromDays(days));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="days" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="days" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Days(this int days, TimeSpan offset)
-		=> TimeSpan.FromDays(days).Add(offset);
+	public static TimeSpanBuilder Days(this int days, TimeSpan offset)
+		=> new(TimeSpan.FromDays(days).Add(offset));
 
 	/// <summary>
-	///     Creates a <see cref="TimeSpan" /> based on the number of <paramref name="days" />
+	///     Creates a <see cref="TimeSpanBuilder" /> based on the number of <paramref name="days" />
 	///     and add the given <paramref name="offset" />.
 	/// </summary>
-	public static TimeSpan Days(this double days, TimeSpan offset)
-		=> TimeSpan.FromDays(days).Add(offset);
+	public static TimeSpanBuilder Days(this double days, TimeSpan offset)
+		=> new(TimeSpan.FromDays(days).Add(offset));
 }
