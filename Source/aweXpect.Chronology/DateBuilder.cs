@@ -44,4 +44,7 @@ public readonly struct DateBuilder(DateTime value)
 
 	internal DateTimeBuilder Add(TimeSpan time)
 		=> new(_value + time);
+
+	internal DateTimeOffsetBuilder SetOffset(TimeSpan offset)
+		=> new(new DateTimeOffset(_value, offset));
 }

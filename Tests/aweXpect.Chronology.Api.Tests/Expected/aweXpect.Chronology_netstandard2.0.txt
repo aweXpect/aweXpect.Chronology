@@ -47,6 +47,20 @@ namespace aweXpect.Chronology
         public static aweXpect.Chronology.DateBuilder October(this int day, int year) { }
         public static aweXpect.Chronology.DateBuilder September(this int day, int year) { }
     }
+    public readonly struct DateTimeOffsetBuilder
+    {
+        public DateTimeOffsetBuilder(System.DateTimeOffset value) { }
+        public static System.DateTime op_Implicit(aweXpect.Chronology.DateTimeOffsetBuilder builder) { }
+        public static System.DateTimeOffset op_Implicit(aweXpect.Chronology.DateTimeOffsetBuilder builder) { }
+        public static aweXpect.Chronology.DateTimeOffsetBuilder operator +(aweXpect.Chronology.DateTimeOffsetBuilder builder, System.TimeSpan time) { }
+        public static aweXpect.Chronology.DateTimeOffsetBuilder operator -(aweXpect.Chronology.DateTimeOffsetBuilder builder, System.TimeSpan time) { }
+    }
+    public static class DateTimeOffsetExtensions
+    {
+        public static aweXpect.Chronology.DateTimeOffsetBuilder WithOffset(this System.DateTime dateTime, System.TimeSpan offset) { }
+        public static aweXpect.Chronology.DateTimeOffsetBuilder WithOffset(this aweXpect.Chronology.DateBuilder dateTime, System.TimeSpan offset) { }
+        public static aweXpect.Chronology.DateTimeOffsetBuilder WithOffset(this aweXpect.Chronology.DateTimeBuilder dateTime, System.TimeSpan offset) { }
+    }
     public readonly struct TimeSpanBuilder
     {
         public TimeSpanBuilder(System.TimeSpan value) { }
