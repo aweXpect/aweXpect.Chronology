@@ -143,6 +143,14 @@ public static class DateTimeExtensions
 		=> new(date.Year, date.Month, date.Day, hours, minutes, seconds, milliseconds, DateTimeKind.Unspecified);
 #endif
 
+
+	/// <summary>
+	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
+	///     with kind set to <see cref="DateTimeKind.Utc" />.
+	/// </summary>
+	public static DateTimeBuilder AsUtc(this DateTimeBuilder dateTime)
+		=> dateTime.SpecifyKind(DateTimeKind.Utc);
+
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
 	///     with kind set to <see cref="DateTimeKind.Utc" />.
@@ -154,38 +162,23 @@ public static class DateTimeExtensions
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
 	///     with kind set to <see cref="DateTimeKind.Local" />.
 	/// </summary>
-	public static DateTime AsLocal(this DateTime dateTime)
-		=> DateTime.SpecifyKind(dateTime, DateTimeKind.Local);
-
-	/// <summary>
-	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
-	///     with kind set to <see cref="DateTimeKind.Utc" />.
-	/// </summary>
-	public static DateTimeBuilder AsUtc(this DateTimeBuilder dateTime)
-		=> dateTime.SpecifyKind(DateTimeKind.Utc);
+	public static DateTimeBuilder AsLocal(this DateTimeBuilder dateTime)
+		=> dateTime.SpecifyKind(DateTimeKind.Local);
 
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> for the given <paramref name="dateTime" />
 	///     with kind set to <see cref="DateTimeKind.Local" />.
 	/// </summary>
-	public static DateTimeBuilder AsLocal(this DateTimeBuilder dateTime)
-		=> dateTime.SpecifyKind(DateTimeKind.Local);
+	public static DateTime AsLocal(this DateTime dateTime)
+		=> DateTime.SpecifyKind(dateTime, DateTimeKind.Local);
 
 
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> before the
 	///     given <paramref name="dateTime" />.
 	/// </summary>
-	public static DateTime Before(this TimeSpan timeDifference, DateTime dateTime)
+	public static DateBuilder Before(this TimeSpanBuilder timeDifference, DateBuilder dateTime)
 		=> dateTime - timeDifference;
-
-	/// <summary>
-	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> before the
-	///     given <paramref name="dateTime" />.
-	/// </summary>
-	public static DateBuilder Before(this TimeSpan timeDifference, DateBuilder dateTime)
-		=> dateTime - timeDifference;
-
 
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> before the
@@ -198,21 +191,22 @@ public static class DateTimeExtensions
 	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> before the
 	///     given <paramref name="dateTime" />.
 	/// </summary>
-	public static DateBuilder Before(this TimeSpanBuilder timeDifference, DateBuilder dateTime)
+	public static DateBuilder Before(this TimeSpan timeDifference, DateBuilder dateTime)
 		=> dateTime - timeDifference;
 
 	/// <summary>
-	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> after the
-	///     specified <paramref name="dateTime" />.
+	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> before the
+	///     given <paramref name="dateTime" />.
 	/// </summary>
-	public static DateTime After(this TimeSpan timeDifference, DateTime dateTime)
-		=> dateTime + timeDifference;
+	public static DateTime Before(this TimeSpan timeDifference, DateTime dateTime)
+		=> dateTime - timeDifference;
+
 
 	/// <summary>
 	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> after the
 	///     specified <paramref name="dateTime" />.
 	/// </summary>
-	public static DateBuilder After(this TimeSpan timeDifference, DateBuilder dateTime)
+	public static DateBuilder After(this TimeSpanBuilder timeDifference, DateBuilder dateTime)
 		=> dateTime + timeDifference;
 
 	/// <summary>
@@ -226,6 +220,13 @@ public static class DateTimeExtensions
 	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> after the
 	///     specified <paramref name="dateTime" />.
 	/// </summary>
-	public static DateBuilder After(this TimeSpanBuilder timeDifference, DateBuilder dateTime)
+	public static DateBuilder After(this TimeSpan timeDifference, DateBuilder dateTime)
+		=> dateTime + timeDifference;
+
+	/// <summary>
+	///     Creates a <see cref="DateTime" /> that is the <paramref name="timeDifference" /> after the
+	///     specified <paramref name="dateTime" />.
+	/// </summary>
+	public static DateTime After(this TimeSpan timeDifference, DateTime dateTime)
 		=> dateTime + timeDifference;
 }

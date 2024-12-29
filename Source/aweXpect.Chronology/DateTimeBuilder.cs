@@ -50,6 +50,6 @@ public readonly struct DateTimeBuilder(DateTime value)
 	public static DateTimeBuilder operator -(DateTimeBuilder builder, TimeSpan time)
 		=> new(builder._value - time);
 
-	public DateTimeBuilder SpecifyKind(DateTimeKind kind)
+	internal DateTimeBuilder SpecifyKind(DateTimeKind kind)
 		=> new(DateTime.SpecifyKind(_value, kind));
 }

@@ -12,7 +12,6 @@ namespace aweXpect.Chronology
     public readonly struct DateTimeBuilder
     {
         public DateTimeBuilder(System.DateTime value) { }
-        public aweXpect.Chronology.DateTimeBuilder SpecifyKind(System.DateTimeKind kind) { }
         public static System.DateTime op_Implicit(aweXpect.Chronology.DateTimeBuilder builder) { }
         public static aweXpect.Chronology.DateTimeBuilder operator +(aweXpect.Chronology.DateTimeBuilder builder, System.TimeSpan time) { }
         public static aweXpect.Chronology.DateTimeBuilder operator -(aweXpect.Chronology.DateTimeBuilder builder, System.TimeSpan time) { }
