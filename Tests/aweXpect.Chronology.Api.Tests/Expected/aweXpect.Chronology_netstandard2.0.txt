@@ -2,6 +2,27 @@
 [assembly: System.Runtime.Versioning.TargetFramework(".NETStandard,Version=v2.0", FrameworkDisplayName=".NET Standard 2.0")]
 namespace aweXpect.Chronology
 {
+    public static class DateTimeExtensions
+    {
+        public static System.DateTime After(this System.TimeSpan timeDifference, System.DateTime dateTime) { }
+        public static System.DateTime April(this int day, int year) { }
+        public static System.DateTime AsLocal(this System.DateTime dateTime) { }
+        public static System.DateTime AsUtc(this System.DateTime dateTime) { }
+        public static System.DateTime At(this System.DateTime date, System.TimeSpan time) { }
+        public static System.DateTime At(this System.DateTime date, int hours, int minutes, int seconds = 0, int milliseconds = 0) { }
+        public static System.DateTime August(this int day, int year) { }
+        public static System.DateTime Before(this System.TimeSpan timeDifference, System.DateTime dateTime) { }
+        public static System.DateTime December(this int day, int year) { }
+        public static System.DateTime February(this int day, int year) { }
+        public static System.DateTime January(this int day, int year) { }
+        public static System.DateTime July(this int day, int year) { }
+        public static System.DateTime June(this int day, int year) { }
+        public static System.DateTime March(this int day, int year) { }
+        public static System.DateTime May(this int day, int year) { }
+        public static System.DateTime November(this int day, int year) { }
+        public static System.DateTime October(this int day, int year) { }
+        public static System.DateTime September(this int day, int year) { }
+    }
     public static class TimeSpanExtensions
     {
         public static System.TimeSpan Days(this double days) { }
