@@ -32,7 +32,7 @@ partial class Build
 			string[] testAssemblies = UnitTestProjects
 				.SelectMany(project =>
 					project.Directory.GlobFiles(
-						$"bin/{(Configuration == Configuration.Debug ? "Debug" : "Release")}/net48/*.Tests.dll"))
+						$"bin/{(Configuration == Configuration.Debug ? "Debug" : "Release")}/net48/*.Tests.exe"))
 				.Select(p => p.ToString())
 				.ToArray();
 
