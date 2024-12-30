@@ -5,7 +5,7 @@ public sealed partial class TimeSpanExtensions
 	public sealed class MillisecondsTests
 	{
 		[Theory]
-		[AutoData]
+		[InlineData(1.2)]
 		public async Task Milliseconds_Double_ShouldReturnCorrectTimeSpan(double milliseconds)
 		{
 			TimeSpan expected = TimeSpan.FromMilliseconds(milliseconds);
@@ -16,10 +16,11 @@ public sealed partial class TimeSpanExtensions
 		}
 
 		[Theory]
-		[AutoData]
+		[InlineData(1.2, 3.4)]
 		public async Task Milliseconds_Double_WithOffset_ShouldReturnCorrectTimeSpan(
-			double milliseconds, TimeSpan offset)
+			double milliseconds, double offsetSeconds)
 		{
+			TimeSpan offset = TimeSpan.FromSeconds(offsetSeconds);
 			TimeSpan expected = TimeSpan.FromMilliseconds(milliseconds) + offset;
 
 			TimeSpan result = milliseconds.Milliseconds(offset);
@@ -28,7 +29,7 @@ public sealed partial class TimeSpanExtensions
 		}
 
 		[Theory]
-		[AutoData]
+		[InlineData(1)]
 		public async Task Milliseconds_Int_ShouldReturnCorrectTimeSpan(int milliseconds)
 		{
 			TimeSpan expected = TimeSpan.FromMilliseconds(milliseconds);
@@ -39,10 +40,11 @@ public sealed partial class TimeSpanExtensions
 		}
 
 		[Theory]
-		[AutoData]
+		[InlineData(1, 3.4)]
 		public async Task Milliseconds_Int_WithOffset_ShouldReturnCorrectTimeSpan(int milliseconds,
-			TimeSpan offset)
+			double offsetSeconds)
 		{
+			TimeSpan offset = TimeSpan.FromSeconds(offsetSeconds);
 			TimeSpan expected = TimeSpan.FromMilliseconds(milliseconds) + offset;
 
 			TimeSpan result = milliseconds.Milliseconds(offset);

@@ -1,7 +1,6 @@
-﻿using System.Collections;
-using NUnit.Framework;
+﻿using System.Threading.Tasks;
 
-namespace aweXpect.Api.Tests;
+namespace aweXpect.Chronology.Api.Tests;
 
 /// <summary>
 ///     Whenever a test fails, this means that the public API surface changed.
@@ -10,29 +9,18 @@ namespace aweXpect.Api.Tests;
 /// </summary>
 public sealed class ApiApprovalTests
 {
-	[TestCaseSource(typeof(TargetFrameworksTheoryData))]
-	public void VerifyPublicApiForAweXpectChronology(string framework)
+	public static TheoryData<string> TargetFrameworksTheoryData
+		=> new(Helper.GetTargetFrameworks());
+
+	[Theory]
+	[MemberData(nameof(TargetFrameworksTheoryData))]
+	public async Task VerifyPublicApiForAweXpectChronology(string framework)
 	{
 		const string assemblyName = "aweXpect.Chronology";
 
 		string publicApi = Helper.CreatePublicApi(framework, assemblyName);
 		string expectedApi = Helper.GetExpectedApi(framework, assemblyName);
 
-		Assert.That(publicApi, Is.EqualTo(expectedApi));
-	}
-
-	private sealed class TargetFrameworksTheoryData : IEnumerable
-	{
-		#region IEnumerable Members
-
-		public IEnumerator GetEnumerator()
-		{
-			foreach (string targetFramework in Helper.GetTargetFrameworks())
-			{
-				yield return new object[] { targetFramework };
-			}
-		}
-
-		#endregion
+		await Expect.That(publicApi).Should().Be(expectedApi);
 	}
 }
