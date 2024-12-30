@@ -29,18 +29,24 @@ partial class Build
 		.OnlyWhenDynamic(() => EnvironmentInfo.IsWin)
 		.Executes(() =>
 		{
-			string[] testAssemblies = UnitTestProjects
-				.SelectMany(project =>
-					project.Directory.GlobFiles(
-						$"bin/{(Configuration == Configuration.Debug ? "Debug" : "Release")}/net48/*.Tests.exe"))
-				.Select(p => p.ToString())
-				.ToArray();
-
-			Assert.NotEmpty(testAssemblies.ToList());
-
-			Xunit2(s => s
-				.SetFramework("net48")
-				.AddTargetAssemblies(testAssemblies)
+			string net48 = "net48";
+			DotNetTest(s => s
+				.SetConfiguration(Configuration)
+				.SetProcessEnvironmentVariable("DOTNET_CLI_UI_LANGUAGE", "en-US")
+				.EnableNoBuild()
+				.SetDataCollector("XPlat Code Coverage")
+				.SetResultsDirectory(TestResultsDirectory)
+				.CombineWith(
+					UnitTestProjects,
+					(settings, project) => settings
+						.SetProjectFile(project)
+						.CombineWith(
+							project.GetTargetFrameworks()?.Where(x => x == net48),
+							(frameworkSettings, framework) => frameworkSettings
+								.SetFramework(framework)
+								.AddLoggers($"trx;LogFileName={project.Name}_{framework}.trx")
+						)
+				), completeOnFailure: true
 			);
 		});
 
