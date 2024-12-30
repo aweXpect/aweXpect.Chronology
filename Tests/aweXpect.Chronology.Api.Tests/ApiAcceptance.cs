@@ -1,16 +1,15 @@
 ﻿using System;
-using NUnit.Framework;
+using System.Threading.Tasks;
 
-namespace aweXpect.Api.Tests;
+namespace aweXpect.Chronology.Api.Tests;
 
 public sealed class ApiAcceptance
 {
 	/// <summary>
 	///     Execute this test to update the expected public API to the current API surface.
 	/// </summary>
-	[TestCase]
-	[Explicit]
-	public void AcceptApiChanges()
+	[Fact(Explicit = true)]
+	public async Task AcceptApiChanges()
 	{
 		string[] assemblyNames =
 		[
@@ -27,6 +26,6 @@ public sealed class ApiAcceptance
 			}
 		}
 
-		Assert.That(assemblyNames, Is.Not.Empty);
+		await Expect.That(assemblyNames).Should().NotBeEmpty();
 	}
 }
