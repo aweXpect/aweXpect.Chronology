@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace aweXpect.Chronology.Api.Tests;
 
@@ -8,7 +9,8 @@ public sealed class ApiAcceptance
 	/// <summary>
 	///     Execute this test to update the expected public API to the current API surface.
 	/// </summary>
-	[Fact(Explicit = true)]
+	[TestCase]
+	[Explicit]
 	public async Task AcceptApiChanges()
 	{
 		string[] assemblyNames =
