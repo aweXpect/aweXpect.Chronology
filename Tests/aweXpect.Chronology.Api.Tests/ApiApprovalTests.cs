@@ -1,4 +1,6 @@
-﻿using System.Threading.Tasks;
+﻿using System.Collections;
+using System.Threading.Tasks;
+using NUnit.Framework;
 
 namespace aweXpect.Chronology.Api.Tests;
 
@@ -9,11 +11,7 @@ namespace aweXpect.Chronology.Api.Tests;
 /// </summary>
 public sealed class ApiApprovalTests
 {
-	public static TheoryData<string> TargetFrameworksTheoryData
-		=> new(Helper.GetTargetFrameworks());
-
-	[Theory]
-	[MemberData(nameof(TargetFrameworksTheoryData))]
+	[TestCaseSource(typeof(TargetFrameworksTheoryData))]
 	public async Task VerifyPublicApiForAweXpectChronology(string framework)
 	{
 		const string assemblyName = "aweXpect.Chronology";
@@ -22,5 +20,19 @@ public sealed class ApiApprovalTests
 		string expectedApi = Helper.GetExpectedApi(framework, assemblyName);
 
 		await Expect.That(publicApi).Should().Be(expectedApi);
+	}
+	private sealed class TargetFrameworksTheoryData : IEnumerable
+	{
+		#region IEnumerable Members
+
+		public IEnumerator GetEnumerator()
+		{
+			foreach (string targetFramework in Helper.GetTargetFrameworks())
+			{
+				yield return new object[] { targetFramework };
+			}
+		}
+
+		#endregion
 	}
 }
