@@ -36,7 +36,7 @@ partial class Build
 		.Executes(async () =>
 		{
 			string fileContent = await File.ReadAllTextAsync(ArtifactsDirectory / "Benchmarks" / "results" /
-			                                                 "aweXpect.Benchmarks.HappyCaseBenchmarks-report-github.md");
+			                                                 "aweXpect.Chronology.Benchmarks.HappyCaseBenchmarks-report-github.md");
 			Log.Information("Report:\n {FileContent}", fileContent);
 		});
 
