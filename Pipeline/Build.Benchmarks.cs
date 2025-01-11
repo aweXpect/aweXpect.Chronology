@@ -87,7 +87,7 @@ partial class Build
 	string CreateBenchmarkCommentBody()
 	{
 		string[] fileContent = File.ReadAllLines(ArtifactsDirectory / "Benchmarks" / "results" /
-		                                         "aweXpect.Benchmarks.HappyCaseBenchmarks-report-github.md");
+		                                         "aweXpect.Chronology.Benchmarks.HappyCaseBenchmarks-report-github.md");
 		StringBuilder sb = new();
 		sb.AppendLine("## :rocket: Benchmark Results");
 		sb.AppendLine("<details>");
