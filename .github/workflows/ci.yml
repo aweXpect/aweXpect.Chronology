@@ -84,6 +84,29 @@ jobs:
                 env:
                     GithubToken: ${{ secrets.GITHUB_TOKEN }}
     
+    benchmarks:
+        name: "Benchmarks"
+        if: ${{ github.actor != 'dependabot[bot]' }}
+        runs-on: ubuntu-latest
+        permissions:
+            contents: write
+            pull-requests: write
+        env:
+            DOTNET_NOLOGO: true
+        steps:
+            -   uses: actions/checkout@v4
+                with:
+                    fetch-depth: 0
+            -   name: Setup .NET SDKs
+                uses: actions/setup-dotnet@v4
+                with:
+                    dotnet-version: |
+                        8.0.x
+            -   name: Run benchmarks
+                run: ./build.sh Benchmarks
+                env:
+                    GithubToken: ${{ secrets.GITHUB_TOKEN }}
+
     static-code-analysis:
         name: "Static code analysis"
         if: ${{ github.actor != 'dependabot[bot]' }}
