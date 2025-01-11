@@ -4,11 +4,13 @@ namespace aweXpect.Chronology.Benchmarks;
 
 public partial class HappyCaseBenchmarks
 {
-	[Benchmark]
-	public static TimeSpan TimeSpan_aweXpect()
-		=> 140.Milliseconds();
+	private readonly int _milliseconds = 140;
 
 	[Benchmark]
-	public static TimeSpan TimeSpan_DotNet()
-		=> TimeSpan.FromMilliseconds(140);
+	public TimeSpan TimeSpan_aweXpect()
+		=> _milliseconds.Milliseconds();
+
+	[Benchmark]
+	public TimeSpan TimeSpan_DotNet()
+		=> TimeSpan.FromMilliseconds(_milliseconds);
 }
