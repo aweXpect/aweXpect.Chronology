@@ -10,7 +10,7 @@ public sealed class DateBuilderTests
 
 		DateTime result = builder - 3.Days();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -21,7 +21,7 @@ public sealed class DateBuilderTests
 
 		DateTime result = builder + 3.Days();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -32,7 +32,7 @@ public sealed class DateBuilderTests
 
 		DateTime result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 #if NET8_0_OR_GREATER
@@ -44,7 +44,7 @@ public sealed class DateBuilderTests
 
 		DateOnly result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 #endif
 }

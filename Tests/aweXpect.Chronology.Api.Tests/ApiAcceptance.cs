@@ -28,6 +28,6 @@ public sealed class ApiAcceptance
 			}
 		}
 
-		await Expect.That(assemblyNames).Should().NotBeEmpty();
+		await Expect.That(assemblyNames).IsNotEmpty();
 	}
 }

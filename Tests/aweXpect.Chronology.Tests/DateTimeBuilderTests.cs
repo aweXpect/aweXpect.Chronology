@@ -10,7 +10,7 @@ public sealed class DateTimeBuilderTests
 
 		DateTime result = builder - 2.Hours();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -21,7 +21,7 @@ public sealed class DateTimeBuilderTests
 
 		DateTime result = builder + 2.Hours();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -32,7 +32,7 @@ public sealed class DateTimeBuilderTests
 
 		DateTime result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 #if NET8_0_OR_GREATER
@@ -44,7 +44,7 @@ public sealed class DateTimeBuilderTests
 
 		DateOnly result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 #endif
 
@@ -57,7 +57,7 @@ public sealed class DateTimeBuilderTests
 
 		TimeOnly result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 #endif
 }

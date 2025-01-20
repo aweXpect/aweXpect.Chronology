@@ -10,7 +10,7 @@ public sealed class TimeSpanBuilderTests
 
 		TimeSpan result = builder - 1.Hours();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -21,7 +21,7 @@ public sealed class TimeSpanBuilderTests
 
 		TimeSpan result = builder + 1.Hours();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -31,7 +31,7 @@ public sealed class TimeSpanBuilderTests
 		
 		TimeSpan result = -1.Hours();
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 	[Fact]
@@ -42,7 +42,7 @@ public sealed class TimeSpanBuilderTests
 
 		TimeSpan result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 
 #if NET8_0_OR_GREATER
@@ -54,7 +54,7 @@ public sealed class TimeSpanBuilderTests
 
 		TimeOnly result = builder;
 
-		await That(result).Should().Be(expected);
+		await That(result).Is(expected);
 	}
 #endif
 }
