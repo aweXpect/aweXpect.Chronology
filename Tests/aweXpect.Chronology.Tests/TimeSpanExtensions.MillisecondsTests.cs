@@ -12,7 +12,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = milliseconds.Milliseconds();
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 
 		[Theory]
@@ -25,7 +25,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = milliseconds.Milliseconds(offset);
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 
 		[Theory]
@@ -36,7 +36,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = milliseconds.Milliseconds();
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 
 		[Theory]
@@ -49,7 +49,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = milliseconds.Milliseconds(offset);
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 	}
 }

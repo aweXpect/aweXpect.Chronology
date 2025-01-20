@@ -11,7 +11,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 21.Hours().After(24.December(2024));
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 
 		[Fact]
@@ -22,7 +22,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = timeDifference.After(24.December(2024));
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 
 		[Fact]
@@ -33,7 +33,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 21.Hours().After(dateTime);
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 
 		[Fact]
@@ -45,7 +45,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = timeDifference.After(dateTime);
 
-			await That(result).Should().Be(expected);
+			await That(result).Is(expected);
 		}
 	}
 }
