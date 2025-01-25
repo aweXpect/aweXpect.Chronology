@@ -5,7 +5,7 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=aweXpect_aweXpect.Chronology&metric=coverage)](https://sonarcloud.io/summary/new_code?id=aweXpect_aweXpect.Chronology)
 [![Mutation testing badge](https://img.shields.io/endpoint?style=flat&url=https%3A%2F%2Fbadge-api.stryker-mutator.io%2Fgithub.com%2FaweXpect%2FaweXpect.Chronology%2Fmain)](https://dashboard.stryker-mutator.io/reports/github.com/aweXpect/aweXpect.Chronology/main)
 
-Extension methods for creating a `TimeSpan` or `DateTime` that reads more natural.
+Extension methods for creating chronology objects like `TimeSpan` or `DateTime` that read more natural.
 
 
 ## TimeSpan

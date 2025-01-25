@@ -5,8 +5,8 @@
 
 	<PropertyGroup>
 		<Authors>aweXpect</Authors>
-		<Description>Expectations for the file and time system from Chronology.Abstractions.</Description>
-		<Copyright>Copyright (c) 2024 Valentin Breuß</Copyright>
+		<Description>Extension methods for creating chronology objects like `TimeSpan` or `DateTime` that read more natural.</Description>
+		<Copyright>Copyright (c) 2024 - $([System.DateTime]::Now.ToString('yyyy')) Valentin Breuß</Copyright>
 		<RepositoryUrl>https://github.com/aweXpect/aweXpect.Chronology.git</RepositoryUrl>
 		<RepositoryType>git</RepositoryType>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
