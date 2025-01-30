@@ -62,16 +62,27 @@ partial class Build
 		.DependsOn(CalculateNugetVersion)
 		.Executes(() =>
 		{
+			string preRelease = "-CI";
+			if (GitHubActions == null)
+			{
+				preRelease = "-DEV";
+			}
+			else if (GitHubActions.Ref.StartsWith("refs/tags/", StringComparison.OrdinalIgnoreCase))
+			{
+				int preReleaseIndex = GitHubActions.Ref.IndexOf('-');
+				preRelease = preReleaseIndex > 0 ? GitHubActions.Ref[preReleaseIndex..] : "";
+			}
+
 			ReportSummary(s => s
 				.WhenNotNull(SemVer, (summary, semVer) => summary
-					.AddPair("Version", semVer)));
+					.AddPair("Version", semVer + preRelease)));
 
 			DotNetBuild(s => s
 				.SetProjectFile(Solution)
 				.SetConfiguration(Configuration)
 				.EnableNoLogo()
 				.EnableNoRestore()
-				.SetVersion(SemVer)
+				.SetVersion(SemVer + preRelease)
 				.SetAssemblyVersion(GitVersion.AssemblySemVer)
 				.SetFileVersion(GitVersion.AssemblySemFileVer)
 				.SetInformationalVersion(GitVersion.InformationalVersion));
