@@ -11,7 +11,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 24.December(2024).At(18.Hours(30.Minutes(15.Seconds())));
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -21,7 +21,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 24.December(2024).At(18, 30);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -31,7 +31,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 24.December(2024).At(18, 30, 59);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -41,7 +41,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 24.December(2024).At(18, 30, 0, 150);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -52,7 +52,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18.Hours(30.Minutes(15.Seconds())));
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -63,7 +63,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18, 30);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -74,7 +74,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18, 30, 59);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -85,7 +85,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18, 30, 0, 150);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -97,7 +97,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18.Hours(30.Minutes(15.Seconds())));
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -108,7 +108,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18, 30);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -119,7 +119,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18, 30, 59);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -130,7 +130,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = date.At(18, 30, 0, 150);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 	}

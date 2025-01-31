@@ -12,7 +12,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = seconds.Seconds();
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Theory]
@@ -25,7 +25,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = seconds.Seconds(offset);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Theory]
@@ -36,7 +36,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = seconds.Seconds();
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Theory]
@@ -49,7 +49,7 @@ public sealed partial class TimeSpanExtensions
 
 			TimeSpan result = seconds.Seconds(offset);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 	}
 }

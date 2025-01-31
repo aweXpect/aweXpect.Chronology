@@ -11,7 +11,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 3.Hours().Before(25.December(2024));
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -22,7 +22,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = timeDifference.Before(25.December(2024));
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -33,7 +33,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 3.Hours().Before(dateTime);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -45,7 +45,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = timeDifference.Before(dateTime);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 	}
 }
