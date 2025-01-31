@@ -11,7 +11,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 29.January(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -22,7 +22,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 29.January(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -33,7 +33,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 28.February(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -44,7 +44,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 28.February(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -55,7 +55,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 27.March(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -66,7 +66,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 27.March(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -77,7 +77,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 26.April(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -88,7 +88,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 26.April(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -99,7 +99,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 25.May(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -110,7 +110,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 25.May(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -121,7 +121,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 24.June(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -132,7 +132,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 24.June(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -143,7 +143,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 23.July(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -154,7 +154,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 23.July(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -165,7 +165,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 22.August(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -176,7 +176,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 22.August(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -187,7 +187,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 21.September(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -198,7 +198,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 21.September(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -209,7 +209,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 20.October(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -220,7 +220,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 20.October(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -231,7 +231,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 19.November(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -242,7 +242,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 19.November(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 
@@ -253,7 +253,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = 18.December(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 #if NET8_0_OR_GREATER
@@ -264,7 +264,7 @@ public sealed partial class DateTimeExtensions
 
 			DateOnly result = 18.December(2024);
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 #endif
 	}

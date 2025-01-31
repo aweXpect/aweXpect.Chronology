@@ -12,7 +12,7 @@ public sealed class DateTimeOffsetExtensions
 
 			DateTimeOffset result = dateTime.WithOffset(7.5.Hours());
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -23,7 +23,7 @@ public sealed class DateTimeOffsetExtensions
 
 			DateTimeOffset result = dateTime.WithOffset(7.5.Hours());
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 
 		[Fact]
@@ -34,7 +34,7 @@ public sealed class DateTimeOffsetExtensions
 
 			DateTimeOffset result = dateTime.WithOffset(7.5.Hours());
 
-			await That(result).Is(expected);
+			await That(result).IsEqualTo(expected);
 		}
 	}
 }

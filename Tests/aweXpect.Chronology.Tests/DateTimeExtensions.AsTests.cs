@@ -9,7 +9,7 @@ public sealed partial class DateTimeExtensions
 		{
 			DateTime result = 24.December(2024).At(18, 30).AsUtc();
 
-			await That(result).HasKind(DateTimeKind.Utc);
+			await That(result).HasKind().EqualTo(DateTimeKind.Utc);
 		}
 
 		[Fact]
@@ -19,7 +19,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = dateTime.AsUtc();
 
-			await That(result).HasKind(DateTimeKind.Utc);
+			await That(result).HasKind().EqualTo(DateTimeKind.Utc);
 		}
 
 		[Fact]
@@ -27,7 +27,7 @@ public sealed partial class DateTimeExtensions
 		{
 			DateTime result = 24.December(2024).At(18, 30).AsLocal();
 
-			await That(result).HasKind(DateTimeKind.Local);
+			await That(result).HasKind().EqualTo(DateTimeKind.Local);
 		}
 
 		[Fact]
@@ -37,7 +37,7 @@ public sealed partial class DateTimeExtensions
 
 			DateTime result = dateTime.AsLocal();
 
-			await That(result).HasKind(DateTimeKind.Local);
+			await That(result).HasKind().EqualTo(DateTimeKind.Local);
 		}
 	}
 }
