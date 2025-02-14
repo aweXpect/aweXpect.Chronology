@@ -19,17 +19,13 @@ public readonly struct TimeSpanBuilder(TimeSpan value)
 	///     Implicitly casts the <see cref="TimeSpanBuilder" /> to a <see cref="TimeSpan" />.
 	/// </summary>
 	public static implicit operator TimeSpan(TimeSpanBuilder builder)
-	{
-		return builder._value;
-	}
+		=> builder._value;
 
 	/// <summary>
 	///     Returns a new <see cref="TimeSpanBuilder" /> whose value is the negated value of this <paramref name="instance" />.
 	/// </summary>
 	public static TimeSpanBuilder operator -(TimeSpanBuilder instance)
-	{
-		return new TimeSpanBuilder(instance._value.Negate());
-	}
+		=> new(instance._value.Negate());
 
 #if NET8_0_OR_GREATER
 	/// <summary>
@@ -43,31 +39,23 @@ public readonly struct TimeSpanBuilder(TimeSpan value)
 	///     Adds a <see cref="TimeSpan" /> to the <see cref="TimeSpan" />.
 	/// </summary>
 	public static TimeSpanBuilder operator +(TimeSpanBuilder builder, TimeSpan time)
-	{
-		return new TimeSpanBuilder(builder._value + time);
-	}
+		=> new(builder._value + time);
 
 	/// <summary>
 	///     Subtracts a <see cref="TimeSpan" /> from the <see cref="TimeSpan" />.
 	/// </summary>
 	public static TimeSpanBuilder operator -(TimeSpanBuilder builder, TimeSpan time)
-	{
-		return new TimeSpanBuilder(builder._value - time);
-	}
+		=> new(builder._value - time);
 
 	/// <summary>
 	///     Multiplies a <see cref="TimeSpan" /> with the <paramref name="multiplier" />.
 	/// </summary>
 	public static TimeSpanBuilder operator *(TimeSpanBuilder builder, double multiplier)
-	{
-		return new TimeSpanBuilder(TimeSpan.FromTicks((long)(builder._value.Ticks * multiplier)));
-	}
+		=> new(TimeSpan.FromTicks((long)(builder._value.Ticks * multiplier)));
 
 	/// <summary>
 	///     Divides a <see cref="TimeSpan" /> by the <paramref name="divisor" />.
 	/// </summary>
 	public static TimeSpanBuilder operator /(TimeSpanBuilder builder, double divisor)
-	{
-		return new TimeSpanBuilder(TimeSpan.FromTicks((long)(builder._value.Ticks / divisor)));
-	}
+		=> new(TimeSpan.FromTicks((long)(builder._value.Ticks / divisor)));
 }
