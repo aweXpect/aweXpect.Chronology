@@ -46,4 +46,16 @@ public readonly struct TimeSpanBuilder(TimeSpan value)
 	/// </summary>
 	public static TimeSpanBuilder operator -(TimeSpanBuilder builder, TimeSpan time)
 		=> new(builder._value - time);
+
+	/// <summary>
+	///     Multiplies a <see cref="TimeSpan" /> with the <paramref name="multiplier" />.
+	/// </summary>
+	public static TimeSpanBuilder operator *(TimeSpanBuilder builder, double multiplier)
+		=> new(TimeSpan.FromTicks((long)(builder._value.Ticks * multiplier)));
+
+	/// <summary>
+	///     Divides a <see cref="TimeSpan" /> by the <paramref name="divisor" />.
+	/// </summary>
+	public static TimeSpanBuilder operator /(TimeSpanBuilder builder, double divisor)
+		=> new(TimeSpan.FromTicks((long)(builder._value.Ticks / divisor)));
 }

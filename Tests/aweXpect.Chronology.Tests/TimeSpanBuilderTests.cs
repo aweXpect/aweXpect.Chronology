@@ -25,10 +25,32 @@ public sealed class TimeSpanBuilderTests
 	}
 
 	[Fact]
+	public async Task MultiplyOperator_ShouldAddTimeSpan()
+	{
+		TimeSpanBuilder expected = 6.Hours();
+		TimeSpanBuilder builder = new(3.Hours());
+
+		TimeSpan result = builder * 2;
+
+		await That(result).IsEqualTo(expected);
+	}
+
+	[Fact]
+	public async Task DivisionOperator_ShouldAddTimeSpan()
+	{
+		TimeSpanBuilder expected = 2.Hours();
+		TimeSpanBuilder builder = new(3.Hours());
+
+		TimeSpan result = builder / 1.5;
+
+		await That(result).IsEqualTo(expected);
+	}
+
+	[Fact]
 	public async Task UnaryMinusOperator_ShouldReturnNegatedValue()
 	{
 		TimeSpan expected = TimeSpan.FromHours(-1);
-		
+
 		TimeSpan result = -1.Hours();
 
 		await That(result).IsEqualTo(expected);

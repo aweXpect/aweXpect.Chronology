@@ -73,9 +73,11 @@ namespace aweXpect.Chronology
         public TimeSpanBuilder(System.TimeSpan value) { }
         public static System.TimeSpan op_Implicit(aweXpect.Chronology.TimeSpanBuilder builder) { }
         public static System.TimeOnly op_Implicit(aweXpect.Chronology.TimeSpanBuilder builder) { }
+        public static aweXpect.Chronology.TimeSpanBuilder operator *(aweXpect.Chronology.TimeSpanBuilder builder, double multiplier) { }
         public static aweXpect.Chronology.TimeSpanBuilder operator +(aweXpect.Chronology.TimeSpanBuilder builder, System.TimeSpan time) { }
         public static aweXpect.Chronology.TimeSpanBuilder operator -(aweXpect.Chronology.TimeSpanBuilder instance) { }
         public static aweXpect.Chronology.TimeSpanBuilder operator -(aweXpect.Chronology.TimeSpanBuilder builder, System.TimeSpan time) { }
+        public static aweXpect.Chronology.TimeSpanBuilder operator /(aweXpect.Chronology.TimeSpanBuilder builder, double divisor) { }
     }
     public static class TimeSpanBuilderExtensions
     {
